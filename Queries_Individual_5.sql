@@ -6,7 +6,7 @@ GRANT ALL PRIVILEGES ON OTRO_MUNDO.* TO 'otro_mundo'@'127.0.0.1';
 
 -- Crear la tabla usuarios (id_usuario, nombre, apellido, contraseña,zona horaria (por defecto UTC-3), género y teléfono de contacto)
 
-CREATE TABLE USUARIOS (
+CREATE TABLE USUARIO (
     id_usuario INT NOT NULL AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
@@ -17,33 +17,33 @@ CREATE TABLE USUARIOS (
     PRIMARY KEY (id_usuario)
 );
 
---  Crear la tabla INGRESOS (id_ingreso, id_usuario y la fecha-hora de ingreso (por defecto la fecha-hora actual)).
-CREATE TABLE INGRESOS (
+--  Crear la tabla INGRESO (id_ingreso, id_usuario y la fecha-hora de ingreso (por defecto la fecha-hora actual)).
+CREATE TABLE INGRESO (
     id_ingreso INT NOT NULL AUTO_INCREMENT,
     id_usuario INT NOT NULL,
     fecha_hora_ingreso DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id_ingreso),
-    FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuario)
+    FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
 );
 
 
 -- Crear Tabla visitas para los usuarios que ingresar a la aplicacion
-CREATE TABLE VISITAS (
+CREATE TABLE VISITA (
     id_visita INT NOT NULL AUTO_INCREMENT,
     cantidad_visitas INT NOT NULL,
     id_usuario INT NOT NULL,
     PRIMARY KEY (id_visita),
-    FOREIGN KEY (id_usuario) REFERENCES USUARIOS(id_usuario)
+    FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
 );
 
 
--- CREA 8 USUARIOS PARA LA TABLA USUARIOS
-INSERT INTO USUARIOS (nombre, apellido, contrasena, genero, telefono) VALUES 
+-- CREA 8 USUARIO PARA LA TABLA USUARIO
+INSERT INTO USUARIO (nombre, apellido, contrasena, genero, telefono) VALUES 
 ('Juan', 'Perez', '123456', 'Masculino', '123456789');
 
 
 
-INSERT INTO USUARIOS (nombre, apellido, contrasena, genero, telefono) VALUES 
+INSERT INTO USUARIO (nombre, apellido, contrasena, genero, telefono) VALUES 
 ('Juan Pablo', 'González', 'contraseña123', 'masculino', '+56912345678'),
 ('Andrea', 'Pérez', 'abc123', 'femenino', '+56987654321'),
 ('Rodrigo', 'Flores', 'programador123', 'masculino', '+56924681357'),
@@ -55,7 +55,7 @@ INSERT INTO USUARIOS (nombre, apellido, contrasena, genero, telefono) VALUES
 
 
 -- Crear 8 Ingresos con el id_usuario id_ingreso fecha_hora_ingreso
-INSERT INTO INGRESOS (id_usuario, fecha_hora_ingreso) VALUES 
+INSERT INTO INGRESO (id_usuario, fecha_hora_ingreso) VALUES 
 (1, NOW()),
 (2, NOW()),
 (3, NOW()),
@@ -67,7 +67,7 @@ INSERT INTO INGRESOS (id_usuario, fecha_hora_ingreso) VALUES
 
 
 -- Crea 8 visitas de usuarios
-INSERT INTO VISITAS (id_usuario, cantidad_visitas) VALUES 
+INSERT INTO VISITA (id_usuario, cantidad_visitas) VALUES 
 (1, 1),
 (2, 1),
 (3, 1),
@@ -79,9 +79,9 @@ INSERT INTO VISITAS (id_usuario, cantidad_visitas) VALUES
 (9, 3);
 
 -- Elimine una de las siguentes tablas "QUE COMIENCE EL JUEGO.."
-DROP TABLE USUARIOS;
-DROP TABLE INGRESOS;
-DROP TABLE VISITAS;
+DROP TABLE USUARIO;
+DROP TABLE INGRESO;
+DROP TABLE VISITA;
 
 
 
