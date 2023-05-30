@@ -1,0 +1,41 @@
+ QUE ES DDL ? 
+
+DDL significa "Data Definition Language" (Lenguaje de Definición de Datos, en español). 
+Se refiere a un conjunto de comandos en SQL que se utilizan para definir y manipular la estructura de una base de datos.
+Los comandos DDL se utilizan para crear, modificar y eliminar objetos de la base de datos, como tablas, vistas, índices, procedimientos almacenados, funciones y restricciones. 
+Algunos ejemplos de comandos DDL en SQL son CREATE (para crear objetos en la base de datos), ALTER (para modificar objetos existentes) y DROP (para eliminar objetos).
+En resumen, DDL es un conjunto de comandos en SQL que se utilizan para definir y manipular la estructura de una base de datos, 
+y son esenciales para crear y mantener una base de datos eficiente y bien estructurada.
+
+¿Cuándo se puede anular una acción DDL?
+
+Normalmente, una acción DDL (como la creación o eliminación de un objeto de base de datos) 
+no puede ser anulada o revertida mediante una acción directa de SQL. Una vez que se ha ejecutado un comando DDL, 
+la única forma de deshacer los cambios es mediante la restauración de una copia de seguridad de la base de datos.
+
+Sin embargo, algunos sistemas de bases de datos ofrecen características de recuperación y registro de transacciones 
+que pueden ayudar a revertir cambios no deseados. Por ejemplo, algunas bases de datos tienen funciones de "punto 
+de recuperación" que permiten volver a un estado anterior de la base de datos.
+
+Además, algunos sistemas de bases de datos registran todas las transacciones realizadas en la base de datos, lo que 
+puede permitir a los administradores de la base de datos recuperar datos perdidos o revertir cambios no deseados.
+
+En cualquier caso, es importante tener cuidado al ejecutar comandos DDL en una base de datos y hacer copias de seguridad 
+regularmente para evitar la pérdida de datos críticos.
+
+
+
+¿Cuando se utilizan comillas dobles en la creación de una tabla?
+
+
+En SQL, las comillas dobles se utilizan para citar nombres de objetos de base de datos (como tablas, columnas, vistas, índices, etc.) que contienen espacios o caracteres especiales.
+
+Por ejemplo, si quisieras crear una tabla con un nombre que contiene un espacio, como "Mi Tabla", necesitarías citar el nombre de la tabla con comillas dobles en la sentencia CREATE TABLE para que el motor de la base de datos lo interprete correctamente:
+
+CREATE TABLE "Mi Tabla" (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(50),
+  edad INT
+);
+
+También se pueden utilizar comillas simples (') para citar nombres de objetos de base de datos en algunos sistemas de bases de datos, pero esto puede variar según el sistema. En general, se recomienda evitar el uso de nombres de objetos de base de datos con espacios o caracteres especiales para evitar la necesidad de citarlos en las sentencias SQL.
